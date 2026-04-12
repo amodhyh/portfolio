@@ -1,12 +1,13 @@
 // app/page.tsx
-import { systems, operations, academics, publications, infrastructureMatrix } from "@/data/data";
+import { operations, academics, publications, infrastructureMatrix } from "@/data/data";
+import { projects } from "@/data/projects";
 
-import { ActiveSystems } from "@/components/portfolio/active-systems";
+import { FeaturedProjects } from "@/components/portfolio/active-systems";
 import { OperationsLedger } from "@/components/portfolio/op-ledger";
 import { AcademicsLedger } from "@/components/portfolio/academic";
 
 import { Badge } from "@/components/ui/badge";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ContactProtocol } from "@/components/portfolio/contact";
 
 export default function Home() {
   return (
@@ -23,13 +24,14 @@ export default function Home() {
             I spend my time building scalable data pipelines, event-driven microservices, and reliable operational tooling.
           </p>
         </div>
-        <ThemeToggle />
       </header>
 
       {/* Modular Components */}
-      <OperationsLedger operations={operations} academics={academics} />
-      <ActiveSystems systems={systems} />
-      <AcademicsLedger></AcademicsLedger>
+      <OperationsLedger operations={operations}  />
+      <FeaturedProjects projects={projects} />
+      <AcademicsLedger academic={academics}></AcademicsLedger>
+     
+     
       {/* Knowledge Distribution */}
       <section className="mb-20">
         <h2 className="uppercase tracking-widest text-muted-foreground font-semibold mb-6">Knowledge Distribution</h2>
@@ -62,6 +64,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <ContactProtocol></ContactProtocol>
 
     </main>
   )
