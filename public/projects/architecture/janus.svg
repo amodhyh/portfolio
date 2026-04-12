@@ -1,0 +1,21 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" rx="24" fill="#0B1220"/>
+  <rect x="60" y="72" width="220" height="120" rx="12" fill="#1E293B" stroke="#334155"/>
+  <text x="86" y="138" fill="#E2E8F0" font-size="28" font-family="monospace">Client API</text>
+  <rect x="360" y="72" width="260" height="120" rx="12" fill="#1D4ED8"/>
+  <text x="398" y="138" fill="#EFF6FF" font-size="28" font-family="monospace">Janus Proxy</text>
+  <rect x="700" y="44" width="440" height="176" rx="12" fill="#0F172A" stroke="#334155"/>
+  <text x="732" y="96" fill="#CBD5E1" font-size="24" font-family="monospace">Policy + Detection Layer</text>
+  <rect x="740" y="118" width="170" height="72" rx="10" fill="#334155"/>
+  <text x="766" y="162" fill="#E2E8F0" font-size="20" font-family="monospace">Rules</text>
+  <rect x="930" y="118" width="170" height="72" rx="10" fill="#334155"/>
+  <text x="956" y="162" fill="#E2E8F0" font-size="20" font-family="monospace">SLM Scan</text>
+  <rect x="360" y="300" width="260" height="120" rx="12" fill="#0F766E"/>
+  <text x="402" y="368" fill="#F0FDFA" font-size="24" font-family="monospace">PII Redactor</text>
+  <rect x="720" y="300" width="260" height="120" rx="12" fill="#7C3AED"/>
+  <text x="752" y="368" fill="#F5F3FF" font-size="24" font-family="monospace">LLM Endpoint</text>
+  <path d="M280 132H360" stroke="#94A3B8" stroke-width="4"/>
+  <path d="M620 132H700" stroke="#94A3B8" stroke-width="4"/>
+  <path d="M490 192V300" stroke="#94A3B8" stroke-width="4"/>
+  <path d="M620 360H720" stroke="#94A3B8" stroke-width="4"/>
+</svg>

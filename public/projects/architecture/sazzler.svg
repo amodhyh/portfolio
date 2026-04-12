@@ -1,0 +1,20 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" rx="24" fill="#111827"/>
+  <rect x="80" y="100" width="240" height="120" rx="12" fill="#1F2937"/>
+  <text x="120" y="170" fill="#E5E7EB" font-size="24" font-family="monospace">API Gateway</text>
+  <rect x="400" y="80" width="220" height="96" rx="10" fill="#334155"/>
+  <text x="440" y="136" fill="#E2E8F0" font-size="20" font-family="monospace">Order</text>
+  <rect x="400" y="190" width="220" height="96" rx="10" fill="#334155"/>
+  <text x="422" y="246" fill="#E2E8F0" font-size="20" font-family="monospace">Inventory</text>
+  <rect x="400" y="300" width="220" height="96" rx="10" fill="#334155"/>
+  <text x="442" y="356" fill="#E2E8F0" font-size="20" font-family="monospace">Payment</text>
+  <rect x="760" y="120" width="340" height="220" rx="14" fill="#7C2D12"/>
+  <text x="844" y="240" fill="#FFEDD5" font-size="30" font-family="monospace">Kafka Bus</text>
+  <rect x="760" y="410" width="340" height="120" rx="12" fill="#1D4ED8"/>
+  <text x="828" y="482" fill="#DBEAFE" font-size="26" font-family="monospace">Analytics</text>
+  <path d="M320 160H400" stroke="#9CA3AF" stroke-width="4"/>
+  <path d="M620 128H760" stroke="#9CA3AF" stroke-width="4"/>
+  <path d="M620 238H760" stroke="#9CA3AF" stroke-width="4"/>
+  <path d="M620 348H760" stroke="#9CA3AF" stroke-width="4"/>
+  <path d="M930 340V410" stroke="#9CA3AF" stroke-width="4"/>
+</svg>
