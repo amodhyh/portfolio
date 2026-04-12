@@ -2,6 +2,8 @@
 
 /* 1. shadcn Theme Mapping for Tailwind v4 */
 @theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
