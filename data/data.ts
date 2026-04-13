@@ -1,6 +1,6 @@
 // data/data.ts
 
-export interface Operation {
+export interface Experience {
   company: string;
   role: string;
   period: string;
@@ -21,7 +21,7 @@ export interface Academic {
   details: string[];
 }
 
-export const operations: Operation[] = [
+export const experience: Experience[] = [
   {
     company: "Dilexus Infotech",
     role: "Fullstack AI Engineering Intern",

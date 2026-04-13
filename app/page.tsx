@@ -1,5 +1,5 @@
 // app/page.tsx
-import { operations, academics, publications, infrastructureMatrix } from "@/data/data";
+import { experience, academics, publications, infrastructureMatrix } from "@/data/data";
 import { projects } from "@/data/projects";
 
 import { FeaturedProjects } from "@/components/portfolio/active-systems";
@@ -27,7 +27,7 @@ export default function Home() {
       </header>
 
       {/* Modular Components */}
-      <OperationsLedger operations={operations}  />
+      <OperationsLedger operations={experience}  />
       <FeaturedProjects projects={projects} />
       <AcademicsLedger academic={academics}></AcademicsLedger>
      
