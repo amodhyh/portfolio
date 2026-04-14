@@ -4,6 +4,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import HomeButton from "@/components/home-button";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -21,6 +23,9 @@ export const metadata: Metadata = {
   title: "Amodh Herath ",
   description: "Portfolio website of Amodh Herath",
 };
+
+
+
 
 export default function RootLayout({
   children,
@@ -43,10 +48,13 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="absolute top-4 right-4">
+            <HomeButton /> 
             <ThemeToggle />
+
           </div>
           {children}
         </ThemeProvider>
+
       </body>
     </html>
   );
