@@ -37,9 +37,9 @@ export function ThemeToggle() {
       className="h-9 w-9 rounded-sm border-slate-200 dark:border-slate-800"
     >
       {resolvedTheme === "dark" ? (
-        <Moon className="h-[1.2rem] w-[1.2rem] text-slate-100" />
+        <Moon  />
       ) : (
-        <Sun className="h-[1.2rem] w-[1.2rem] text-slate-900" />
+        <Sun  />
       )}
       <span className="sr-only">Toggle theme</span>
     </Button>
