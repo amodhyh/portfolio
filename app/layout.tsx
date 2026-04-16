@@ -47,12 +47,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="absolute top-4 right-4">
-            <HomeButton /> 
-            <ThemeToggle />
 
+              <div className="flex items-center justify-end mx-2 gap-2">
+                <HomeButton /> 
+                <ThemeToggle />
+              </div>
+
+
+          <div className="flex-1">
+            {children}
           </div>
-          {children}
         </ThemeProvider>
 
       </body>
