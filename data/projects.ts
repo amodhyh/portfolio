@@ -22,42 +22,95 @@ export interface ProjectRecord {
   relatedArticles: RelatedArticle[];
 }
 
+export function getProjectBySlug(projectId: string) {
+  return projects.find((project) => project.slug === projectId);
+}
+
 export const projects: ProjectRecord[] = [
   {
     id: "SYS-01",
-    slug: "janus-security-gateway",
-    name: "Janus Security Gateway",
-    githubUrl: "https://github.com/amodhherath/janus-security-gateway",
+    slug: "janus",
+    name: "Janus",
+    githubUrl: "https://github.com/amodhyh/Janus",
     status: "Ongoing",
-    role: "LLM Security Gateway",
-    stack: "Go, Python, Docker",
+    role: "Security Model Service",
+    stack: "Go, Docker",
     shortDescription:
-      "Edge proxy that sanitizes prompts, detects prompt injection, and redacts sensitive entities before model execution.",
+      "Command-line security gateway with modular security model services, configuration management, and Docker Compose deployment.",
     description:
-      "Janus is an edge-deployed gateway for high-risk AI workloads. Incoming prompts are routed through policy checks, injection detection pipelines, and PII redaction workers. The service is designed around low-latency request handling so production model endpoints can be protected without disrupting user experience.",
+      "Janus is a lightweight Go-based security tool designed for command-line operations and model-driven protection layers. It includes dedicated services for security modeling, configuration handling, and containerized deployment via Docker Compose. The architecture supports low-overhead security checks and modular components, making it suitable for protecting CLI workflows or early-stage gateway scenarios in production environments.",
     architectureImage: "/projects/architecture/janus.svg",
-    architectureAlt: "Janus architecture with API gateway, policy engine, and model sidecars",
+    architectureAlt: "Janus architecture showing cmd/janus entrypoint, config layer, and security model service",
     relatedArticles: [
       {
         id: "janus-art-1",
-        title: "Prompt Injection Defense Patterns in Production",
-        source: "Medium",
-        href: "https://medium.com/",
-        summary: "Breakdown of layered prompt defenses and runtime policy gates for enterprise LLM workloads.",
-        thumbnail: "/projects/articles/prompt-defense.svg"
+        title: "Building Modular Security Models in Go",
+        source: "Dev.to",
+        href: "https://dev.to/",
+        summary: "Practical patterns for command-line security tools using Go modules and service isolation.",
+        thumbnail: "/projects/articles/go-security-model.svg"
       },
       {
         id: "janus-art-2",
-        title: "PII Redaction with Small Language Models",
-        source: "Dev.to",
-        href: "https://dev.to/",
-        summary: "How lightweight local models can perform reliable redaction with predictable latency.",
-        thumbnail: "/projects/articles/pii-redaction.svg"
+        title: "Docker Compose for Security Tooling",
+        source: "Medium",
+        href: "https://medium.com/",
+        summary: "How to containerize Go-based security services for consistent development and deployment.",
+        thumbnail: "/projects/articles/docker-security.svg"
       }
     ]
   },
   {
     id: "SYS-02",
+    slug: "sazzler-core",
+    name: "Sazzler Core",
+    githubUrl: "https://github.com/amodhyh/sazzler-core",
+    status: "Ongoing",
+    role: "Event-Driven Commerce Platform",
+    stack: "Java, Spring Boot, Kafka",
+    shortDescription:
+      "Microservices-based e-commerce backend built on event-sourcing principles and async choreographies.",
+    description:
+      "Sazzler operates as a heavy-lifting microservices platform handling core commerce domains. It relies on Kafka for asynchronous communication between inventory, ordering, and payment services. The architecture heavily emphasizes idempotent consumers, strict domain boundaries, and eventual consistency to maintain high throughput and reliability under load.",
+    architectureImage: "/projects/architecture/sazzler.svg",
+    architectureAlt: "Sazzler microservices topology communicating via Kafka event backbone",
+    relatedArticles: [
+      {
+        id: "sazzler-art-1",
+        title: "Event-Driven Choreography in Spring Boot",
+        source: "Medium",
+        href: "https://medium.com/",
+        summary: "Managing distributed transactions and eventual consistency without two-phase commit.",
+        thumbnail: "/projects/articles/commerce-events.svg"
+      },
+      {
+        id: "sazzler-art-2",
+        title: "Designing Idempotent Kafka Consumers",
+        source: "Dev.to",
+        href: "https://dev.to/",
+        summary: "Practical implementation of deduplication keys and retry logic in Java.",
+        thumbnail: "/projects/articles/kafka-idempotency.svg"
+      }
+    ]
+  },
+  {
+    id: "SYS-03",
+    slug: "developer-portfolio",
+    name: "Engineering Portfolio",
+    githubUrl: "https://github.com/amodhyh/portfolio",
+    status: "Production",
+    role: "Frontend Engineering",
+    stack: "Next.js, TypeScript, Vercel",
+    shortDescription:
+      "Static site engineered to showcase backend architecture, system design case studies, and engineering maturity.",
+    description:
+      "A high-performance portfolio built with strict TypeScript and Next.js. It focuses on clean UI layout and fast content delivery for technical case studies. The repository demonstrates modern frontend best practices, component reusability, and automated deployment pipelines.",
+    architectureImage: "/projects/architecture/portfolio.svg",
+    architectureAlt: "Next.js static site generation pipeline",
+    relatedArticles: []
+  },
+  {
+    id: "SYS-04",
     slug: "centurion-aiops",
     name: "Centurion AIOps",
     githubUrl: "https://github.com/amodhherath/centurion-aiops",
@@ -89,41 +142,4 @@ export const projects: ProjectRecord[] = [
       }
     ]
   },
-  {
-    id: "SYS-03",
-    slug: "sazzler-core",
-    name: "Sazzler Core",
-    githubUrl: "https://github.com/amodhherath/sazzler-core",
-    status: "Production",
-    role: "Event-Driven Commerce Platform",
-    stack: "Java, Spring Boot, Kafka",
-    shortDescription:
-      "Microservice platform for order lifecycle management with event sourcing and async transaction choreography.",
-    description:
-      "Sazzler Core powers the backend of a commerce system where inventory, payments, and fulfillment are coordinated through Kafka events. Services are isolated by domain, contracts are versioned, and idempotent consumers ensure eventual consistency under high-throughput load.",
-    architectureImage: "/projects/architecture/sazzler.svg",
-    architectureAlt: "Sazzler architecture with domain services connected over Kafka",
-    relatedArticles: [
-      {
-        id: "sazzler-art-1",
-        title: "Transactional Boundaries in Event-Driven Commerce",
-        source: "Medium",
-        href: "https://medium.com/",
-        summary: "A practical look at choreography-based flows and failure handling in order pipelines.",
-        thumbnail: "/projects/articles/commerce-events.svg"
-      },
-      {
-        id: "sazzler-art-2",
-        title: "Idempotency Strategies for Kafka Consumers",
-        source: "Dev.to",
-        href: "https://dev.to/",
-        summary: "Patterns for dedupe keys, replay-safe processors, and consistency guarantees.",
-        thumbnail: "/projects/articles/kafka-idempotency.svg"
-      }
-    ]
-  }
 ];
-
-export function getProjectBySlug(projectId: string) {
-  return projects.find((project) => project.slug === projectId);
-}
