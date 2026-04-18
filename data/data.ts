@@ -40,7 +40,7 @@ export const academics: Academic[] = [
     credential: "B.Sc. Computer Engineering",
     period: "Expected 2026",
     details: [
-      "Specialization tracks: Distributed Systems, Software Architecture",
+      "Specialization tracks: Artificial Intelligence, Software Architecture, Machine Learning, Embedded Systems",
       "Core focus on backend infrastructure and AI optimization"
     ]
   },
@@ -65,24 +65,25 @@ export const academics: Academic[] = [
 ];
 
 export const publications: Publication[] = [
-  {
-    type: "IEEE Extended Abstract",
-    title: "Emotion Recognition of Sinhala Language Texts in Social Media",
-    description: "Fine-tuned SinBERT models to classify complex linguistic sentiment and emotional markers in localized data streams. Focus on NLP and model optimization.",
-    status: "Authored"
-  },
+  // {
+  //   type: "IEEE Extended Abstract",
+  //   title: "Emotion Recognition of Sinhala Language Texts in Social Media",
+  //   description: "Fine-tuned SinBERT models to classify complex linguistic sentiment and emotional markers in localized data streams. Focus on NLP and model optimization.",
+  //   status: "Authored"
+  // },
   {
     type: "Technical Broadcasting",
-    title: "System Architecture & Career Optimization",
-    description: "Producing technical video content focused on system design patterns, distributed architecture tutorials, and career strategies for a global developer audience.",
-    status: "Active (YouTube)"
+    title: "Docling and SLM",
+    description: "Buiding a robust data extraction pipeline with Docling and a Small Language Model",
+    status: "Under review(Medium)"
   }
 ];
 
 export const infrastructureMatrix = {
-  "Languages": "Go, Java, Python, TypeScript",
+  "Languages": "C++, Go, Java, Python, TypeScript",
   "Orchestration & State": "Apache Kafka, Temporal.io, Docker",
   "Monitoring & Telemetry": "Prometheus",
-  "Frameworks & UI": "Spring Boot, Next.js, Tailwind CSS",
-  "AI / ML Ops": "SinBERT, SLM Integration, LLM Security"
+  "Frameworks & UI": "Spring Boot, Next.js, Tailwind CSS, FastAPI, React",
+  "AI / ML ": "Pytorch, Scikit-learn ",
+  "Cloud":"AWS, Oracle(OCI)"
 };
