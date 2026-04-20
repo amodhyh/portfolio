@@ -8,138 +8,140 @@ export interface RelatedArticle {
 }
 
 export interface ProjectRecord {
-  id: string;
+  id: string ;
   slug: string;
   name: string;
   githubUrl: string;
-  status: "Ongoing" | "Production" | "Research";
+  status: "Ongoing" | "Production" | "Upcoming" | "Completed";
   role: string;
   stack: string;
   shortDescription: string;
   description: string;
   architectureImage: string;
   architectureAlt: string;
-  relatedArticles: RelatedArticle[];
+  relatedArticles: RelatedArticle[] ;
 }
 
-export function getProjectBySlug(projectId: string) {
+
+
+// Featured Projects displayed int the cards
+const featured_projects = ["sazzler", "janus", "centurion"] as const;
+
+
+
+
+
+export function getProjectBySlug(projectId: string): ProjectRecord | undefined {
   return projects.find((project) => project.slug === projectId);
+}
+// get the featured project's ProjectRecord
+export function getFeaturedProjects(): ProjectRecord[] {
+  return featured_projects
+    .map((projectName) => getProjectBySlug(projectName))
+    .filter((project): project is ProjectRecord => project !== undefined);
 }
 
 export const projects: ProjectRecord[] = [
   {
     id: "SYS-01",
     slug: "janus",
-    name: "Janus",
+    name: "Janus Security Gateway",
     githubUrl: "https://github.com/amodhyh/Janus",
     status: "Ongoing",
-    role: "Security Model Service",
-    stack: "Go, Docker",
+    role: "Systems Architect",
+    stack: "Go, Python, gRPC, Redis, Docker",
     shortDescription:
-      "Command-line security gateway with modular security model services, configuration management, and Docker Compose deployment.",
+      "An ultra-low latency AI API gateway and reverse proxy featuring asynchronous prompt injection defense, PII redaction, and automated LLM fallback routing.",
     description:
-      "Janus is a lightweight Go-based security tool designed for command-line operations and model-driven protection layers. It includes dedicated services for security modeling, configuration handling, and containerized deployment via Docker Compose. The architecture supports low-overhead security checks and modular components, making it suitable for protecting CLI workflows or early-stage gateway scenarios in production environments.",
+      `Janus is an enterprise-grade AI edge proxy designed to secure, route, and audit LLM traffic. Built in Go for 
+      sub-millisecond network I/O, it implements a polyglot architecture utilizing gRPC to communicate with a 
+      dedicated Python sidecar for asynchronous Small Language Model (SLM) security inference. The system prioritizes architectural
+       resilience and zero-trust governance. Core capabilities include a Redis-backed Token Bucket algorithm for 
+       distributed rate limiting, declarative YAML configuration for seamless provider failovers (Circuit Breaker pattern), 
+       and out-of-band malicious payload interception to prevent token burn. By isolating the inference engine from the core 
+       reverse proxy, Janus provides strict data sovereignty and prompt injection defense without sacrificing the 
+       Time-To-First-Token (TTFT) performance critical to production AI applications.`,
     architectureImage: "/projects/architecture/janus.svg",
-    architectureAlt: "Janus architecture showing cmd/janus entrypoint, config layer, and security model service",
-    relatedArticles: [
-      {
-        id: "janus-art-1",
-        title: "Building Modular Security Models in Go",
-        source: "Dev.to",
-        href: "https://dev.to/",
-        summary: "Practical patterns for command-line security tools using Go modules and service isolation.",
-        thumbnail: "/projects/articles/go-security-model.svg"
-      },
-      {
-        id: "janus-art-2",
-        title: "Docker Compose for Security Tooling",
-        source: "Medium",
-        href: "https://medium.com/",
-        summary: "How to containerize Go-based security services for consistent development and deployment.",
-        thumbnail: "/projects/articles/docker-security.svg"
-      }
-    ]
+    architectureAlt: "Event-driven architecture diagram showing the Go control plane, Redis data plane, and the Python gRPC inspection layer.",
+    relatedArticles: []
   },
   {
     id: "SYS-02",
-    slug: "sazzler-core",
-    name: "Sazzler Core",
-    githubUrl: "https://github.com/amodhyh/sazzler-core",
+    slug: "sazzler",
+    name: "Sazzler",
+    githubUrl: "https://github.com/amodhyh/Project-Sazzler",
     status: "Ongoing",
     role: "Event-Driven Commerce Platform",
     stack: "Java, Spring Boot, Kafka",
     shortDescription:
       "Microservices-based e-commerce backend built on event-sourcing principles and async choreographies.",
     description:
-      "Sazzler operates as a heavy-lifting microservices platform handling core commerce domains. It relies on Kafka for asynchronous communication between inventory, ordering, and payment services. The architecture heavily emphasizes idempotent consumers, strict domain boundaries, and eventual consistency to maintain high throughput and reliability under load.",
+      `Sazzler operates as a heavy-lifting microservices platform handling core commerce domains. 
+      It relies on Kafka for asynchronous communication between inventory, ordering, and payment services. 
+      The architecture heavily emphasizes idempotent consumers, strict domain boundaries, and eventual 
+      consistency to maintain high throughput and reliability under load.`,
     architectureImage: "/projects/architecture/sazzler.svg",
     architectureAlt: "Sazzler microservices topology communicating via Kafka event backbone",
     relatedArticles: [
-      {
-        id: "sazzler-art-1",
-        title: "Event-Driven Choreography in Spring Boot",
-        source: "Medium",
-        href: "https://medium.com/",
-        summary: "Managing distributed transactions and eventual consistency without two-phase commit.",
-        thumbnail: "/projects/articles/commerce-events.svg"
-      },
-      {
-        id: "sazzler-art-2",
-        title: "Designing Idempotent Kafka Consumers",
-        source: "Dev.to",
-        href: "https://dev.to/",
-        summary: "Practical implementation of deduplication keys and retry logic in Java.",
-        thumbnail: "/projects/articles/kafka-idempotency.svg"
-      }
+      
     ]
   },
   {
     id: "SYS-03",
     slug: "developer-portfolio",
-    name: "Engineering Portfolio",
+    name: "Portfolio",
     githubUrl: "https://github.com/amodhyh/portfolio",
     status: "Production",
     role: "Frontend Engineering",
     stack: "Next.js, TypeScript, Vercel",
     shortDescription:
       "Static site engineered to showcase backend architecture, system design case studies, and engineering maturity.",
-    description:
-      "A high-performance portfolio built with strict TypeScript and Next.js. It focuses on clean UI layout and fast content delivery for technical case studies. The repository demonstrates modern frontend best practices, component reusability, and automated deployment pipelines.",
+    description: `A high-performance portfolio built with strict TypeScript and Next.js. 
+    It focuses on clean UI layout and fast content delivery for technical case studies. 
+    The repository demonstrates modern frontend best practices, componentreusability, and automated deployment pipelines.`,
     architectureImage: "/projects/architecture/portfolio.svg",
     architectureAlt: "Next.js static site generation pipeline",
     relatedArticles: []
   },
   {
     id: "SYS-04",
-    slug: "centurion-aiops",
+    slug: "centurion",
     name: "Centurion AIOps",
-    githubUrl: "https://github.com/amodhherath/centurion-aiops",
-    status: "Ongoing",
+    githubUrl: "https://github.com/amodhyh/centurion-aiops",
+    status: "Upcoming",
     role: "Autonomous SRE Agent",
     stack: "Go, Temporal, Prometheus",
     shortDescription:
       "Workflow-driven operations agent for incident triage, rollback orchestration, and self-healing execution.",
     description:
-      "Centurion automates operational response to telemetry anomalies. It consumes alerts, evaluates runbook strategies, and executes remediations through Temporal workflows. The architecture prioritizes observability, deterministic retries, and controlled escalation paths to human operators.",
+      `Centurion automates operational response to telemetry anomalies. 
+      It consumes alerts, evaluates runbook strategies, and executes remediations through Temporal workflows. 
+      The architecture prioritizes observability, deterministic retries, and controlled escalation paths to human operators.`,
     architectureImage: "/projects/architecture/centurion.svg",
     architectureAlt: "Centurion architecture with telemetry ingestion and Temporal orchestration",
     relatedArticles: [
-      {
-        id: "centurion-art-1",
-        title: "Designing Deterministic Incident Workflows",
-        source: "Hashnode",
-        href: "https://hashnode.com/",
-        summary: "An opinionated guide for reliable recovery pipelines using workflow engines.",
-        thumbnail: "/projects/articles/incident-workflows.svg"
-      },
-      {
-        id: "centurion-art-2",
-        title: "From Alert Fatigue to Actionable Signals",
-        source: "Substack",
-        href: "https://substack.com/",
-        summary: "Techniques for reducing noise and improving SRE response quality using telemetry contracts.",
-        thumbnail: "/projects/articles/alert-fatigue.svg"
-      }
+      
     ]
   },
+  
+  {
+  id: "SYS-05",
+  slug: "sortify",
+  name: "Sortify",
+  githubUrl: "https://github.com/amodhyh/Sortify",
+  status: "Completed",
+  role: "Fullstack AI Garbage Classifier",
+  stack: "React, FastAPI, Pytorch",
+  shortDescription:
+    "A full-stack AI application that processes and classifies waste materials using a custom machine learning model.",
+  description:
+    `Sortify addresses waste management inefficiencies through
+     automated image classification. A custom finetuned PyTorch CNN model is served via a FastAPI backend, 
+     exposing endpoints for low-latency image inference. The React frontend consumes these APIs to provide users 
+     with real-time feedback on garbage categorization, facilitating accurate recycling and disposal routin for 12 types 
+     of garbage Classes.`,
+  architectureImage: "/projects/architecture/sortify.svg",
+  architectureAlt: "Sortify architecture highlighting a React frontend communicating with a FastAPI and PyTorch inference server",
+  relatedArticles: []
+},
 ];

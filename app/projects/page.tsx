@@ -1,5 +1,8 @@
 "use client";
 
+// Projects Page which contains all the projects and their portals to 
+
+
 // app/projects/page.tsx
 import { useMemo, useState } from "react";
 import Link from "next/link";
@@ -8,13 +11,14 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { buttonVariants } from "@/components/ui/button";
 import { GithubIcon } from "@/components/logo/logo";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { projects } from "@/data/projects";
+import { getFeaturedProjects, ProjectRecord, projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
 export default function ProjectsIndexPage() {
   const [query, setQuery] = useState("");
 
-  const featuredProjects = projects.slice(0, 3);
+  // featured projects Cards
+  const featuredProjects : ProjectRecord[] = getFeaturedProjects();
 
   const filteredProjects = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -56,6 +60,7 @@ export default function ProjectsIndexPage() {
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map((project) => (
+
             <Card key={project.id} className="group h-full border-border bg-card hover:border-primary hover:bg-accent/50 transition-all duration-200 flex flex-col relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-border to-transparent group-hover:from-primary transition-colors" />
 
