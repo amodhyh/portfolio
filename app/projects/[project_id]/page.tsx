@@ -6,11 +6,49 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { GithubIcon } from "@/components/logo/logo";
-import { getProjectBySlug, projects } from "@/data/projects";
+import { getProjectBySlug, ProjectRecord, projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({ project_id: project.slug }));
+}
+
+// Component to display the articles , if there are any otherwise a simple text is displayed
+function Articles({ relatedArticles }: { relatedArticles: ProjectRecord["relatedArticles"] }) {
+  if (relatedArticles.length === 0 ) {
+    return <h3 className="text-muted">Articles are ongoing...</h3>;
+  } 
+
+  return relatedArticles.map((article) => (
+      <Link
+        key={article.id}
+        href={article.href}
+        target="_blank"
+        rel="noreferrer"
+        className="group block rounded-lg border border-border bg-card p-4 hover:bg-accent/60 transition-colors"
+      >
+        <article className="flex flex-col gap-4 sm:flex-row sm:items-start">
+          <div className="w-full sm:w-56 shrink-0 overflow-hidden rounded-md border border-border">
+            <Image
+              src={article.thumbnail}
+              alt={article.title}
+              width={640}
+              height={360}
+              className="h-auto w-full"
+            />
+          </div>
+          <div className="min-w-0">
+            <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">{article.source}</p>
+            <h3 className="text-base font-semibold mb-2 group-hover:text-primary transition-colors">{article.title}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">{article.summary}</p>
+            <p className="text-xs mt-3 inline-flex items-center gap-1 text-primary">
+              Open article <ExternalLink className="h-3.5 w-3.5" />
+            </p>
+          </div>
+        </article>
+      </Link>
+    ));
+  
 }
 
 export default async function ProjectDetailsPage({
@@ -59,7 +97,7 @@ export default async function ProjectDetailsPage({
       </header>
 
       <section className="mb-12">
-        <h2 className="uppercase tracking-widest text-muted-foreground font-semibold mb-5 text-xs">Architecture</h2>
+        <h2 className="uppercase tracking-widest text-muted-foreground font-semibold mb-5 text-xl">Architecture</h2>
         <div className="overflow-hidden rounded-lg border border-border bg-card">
           <Image
             src={project.architectureImage}
@@ -73,7 +111,7 @@ export default async function ProjectDetailsPage({
       </section>
 
       <section className="mb-12">
-        <h2 className="uppercase tracking-widest text-muted-foreground font-semibold mb-5 text-xs">Project Snapshot</h2>
+        <h2 className="uppercase tracking-widest text-muted-foreground font-semibold mb-5 text-xl">Project Snapshot</h2>
         <div className="grid gap-3 text-sm border border-border rounded-lg p-5 bg-card">
           <p>
             <span className="text-muted-foreground uppercase tracking-wider text-xs">Role</span>
@@ -89,37 +127,9 @@ export default async function ProjectDetailsPage({
       </section>
 
       <section>
-        <h2 className="uppercase tracking-widest text-muted-foreground font-semibold mb-5 text-xs">Related Articles</h2>
+        <h2 className="uppercase tracking-widest text-muted-foreground font-semibold mb-5 text-xl">Related Articles</h2>
         <div className="space-y-4">
-          {project.relatedArticles.map((article) => (
-            <Link
-              key={article.id}
-              href={article.href}
-              target="_blank"
-              rel="noreferrer"
-              className="group block rounded-lg border border-border bg-card p-4 hover:bg-accent/60 transition-colors"
-            >
-              <article className="flex flex-col gap-4 sm:flex-row sm:items-start">
-                <div className="w-full sm:w-56 shrink-0 overflow-hidden rounded-md border border-border">
-                  <Image
-                    src={article.thumbnail}
-                    alt={article.title}
-                    width={640}
-                    height={360}
-                    className="h-auto w-full"
-                  />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">{article.source}</p>
-                  <h3 className="text-base font-semibold mb-2 group-hover:text-primary transition-colors">{article.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{article.summary}</p>
-                  <p className="text-xs mt-3 inline-flex items-center gap-1 text-primary">
-                    Open article <ExternalLink className="h-3.5 w-3.5" />
-                  </p>
-                </div>
-              </article>
-            </Link>
-          ))}
+          <Articles relatedArticles={project.relatedArticles} />
         </div>
       </section>
     </main>

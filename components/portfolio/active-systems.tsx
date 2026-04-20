@@ -5,9 +5,10 @@ import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import type { ProjectRecord } from "@/data/projects"
+import { getFeaturedProjects,ProjectRecord } from "@/data/projects"
 
 export function FeaturedProjects({ projects }: { projects: ProjectRecord[] }) {
+  const featuredProjects = getFeaturedProjects();
   return (
     <section className="mb-20">
       <div className="mb-6 flex items-center justify-between gap-4 ">
@@ -32,7 +33,7 @@ export function FeaturedProjects({ projects }: { projects: ProjectRecord[] }) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {projects.map((project) => (
+              {featuredProjects.map((project) => (
                 <TableRow key={project.id}>
                   <TableCell className="font-medium align-top pt-4">{project.id}</TableCell>
                   <TableCell className="align-top pt-4 whitespace-normal">
