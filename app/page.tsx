@@ -20,8 +20,9 @@ export default function Home() {
             Amodh Herath // Engineering Ledger
           </h1>
           <p className="text-muted-foreground text-base max-w-2xl leading-relaxed">
-            Software Engineer bridging the gap between backend architecture and AI infrastructure. 
-            I spend my time building scalable data pipelines, event-driven microservices, and reliable operational tooling.
+            I write backend software focused on distributed architecture and system reliability. 
+            Instead of just wrapping APIs, I build the middleware that makes AI integration viable in production—handling the network edge, managing asynchronous events, and ensuring services communicate reliably without dropping data. I care about fault tolerance, concurrency, 
+            and engineering clean backend logic that stays fast under real-world load.
           </p>
         </div>
       </header>
