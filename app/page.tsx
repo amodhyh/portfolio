@@ -11,7 +11,7 @@ import { ContactProtocol } from "@/components/portfolio/contact";
 
 export default function Home() {
   return (
-    <main className="relative max-w-5xl mx-auto py-24 px-6 font-mono text-sm selection:bg-primary selection:text-primary-foreground min-h-screen bg-background text-foreground transition-colors duration-300">      
+    <main className="relative max-w-5xl mx-auto py-12 px-6 font-mono text-sm selection:bg-primary selection:text-primary-foreground min-h-screen bg-background text-foreground transition-colors duration-300">      
       
       {/* Header */}
       <header className="mb-20 border-b border-border pb-8 flex justify-between items-start">

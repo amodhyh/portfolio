@@ -4,7 +4,7 @@
 
 
 // app/projects/page.tsx
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -20,26 +20,21 @@ export default function ProjectsIndexPage() {
   // featured projects Cards
   const featuredProjects : ProjectRecord[] = getFeaturedProjects();
 
-  const filteredProjects = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
-
-    if (!normalizedQuery) {
-      return projects;
-    }
-
-    return projects.filter((project) => {
-      return (
-        project.name.toLowerCase().includes(normalizedQuery) ||
-        project.id.toLowerCase().includes(normalizedQuery) ||
-        project.status.toLowerCase().includes(normalizedQuery) ||
-        project.role.toLowerCase().includes(normalizedQuery) ||
-        project.stack.toLowerCase().includes(normalizedQuery)
-      );
-    });
-  }, [query]);
+  const normalizedQuery = query.trim().toLowerCase();
+  const filteredProjects = !normalizedQuery
+    ? projects
+    : projects.filter((project) => {
+        return (
+          project.name.toLowerCase().includes(normalizedQuery) ||
+          project.id.toLowerCase().includes(normalizedQuery) ||
+          project.status.toLowerCase().includes(normalizedQuery) ||
+          project.role.toLowerCase().includes(normalizedQuery) ||
+          project.stack.toLowerCase().includes(normalizedQuery)
+        );
+      });
 
   return (
-    <main className="max-w-5xl mx-auto py-24 px-6 min-h-screen bg-background text-foreground font-mono text-sm transition-colors duration-300">
+    <main className="max-w-5xl mx-auto py-12 px-6 min-h-screen bg-background text-foreground font-mono text-sm transition-colors duration-300">
       
       {/* Header */}
       <header className="mb-16 border-b border-border pb-8">
