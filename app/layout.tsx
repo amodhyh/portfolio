@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
 import HomeButton from "@/components/home-button";
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,13 +45,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
 
-              <div className="flex items-center justify-end mx-2 gap-2">
-                <HomeButton /> 
+          <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <nav className="mx-auto flex h-14 max-w-5xl items-center justify-end px-4 sm:px-6">
+              <div className="flex items-center gap-2">
+                <HomeButton />
                 <ThemeToggle />
               </div>
+            </nav>
+          </header>
 
-
-          <div className="flex-1">
+          <div className="flex-1 pt-12">
             {children}
           </div>
         </ThemeProvider>

@@ -11,7 +11,7 @@ export default function HomeButton() {
       href="/"
       className={cn(
         buttonVariants({ variant: "outline", size: "icon" }),
-        "h-9 w-9 rounded-sm border-slate-200 dark:border-slate-800 m-2"
+        "rounded-sm"
       )}
       aria-label="Go to home page"
     >
