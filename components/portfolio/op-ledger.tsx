@@ -1,5 +1,5 @@
 // components/portfolio/operations-ledger.tsx
-import { Experience, Academic } from "@/data/data"
+import { Experience } from "@/data/data"
 
 export function OperationsLedger({ operations }: { operations: Experience[]}) {
   return (
