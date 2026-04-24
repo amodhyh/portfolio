@@ -1,5 +1,6 @@
 // components/portfolio/contact-protocol.tsx
-import { Mail, Key } from "lucide-react"
+import Link from "next/link";
+import { Mail,Download } from "lucide-react"
 import { GithubIcon, LinkedinIcon } from "../logo/logo"
 
 export function ContactProtocol() {
@@ -54,6 +55,19 @@ export function ContactProtocol() {
             <span className="block text-sm font-medium text-foreground">Linkedin</span>
           </div>
         </a>
+
+        <Link 
+          href="/cv"
+          className="flex items-center gap-4 p-4 border border-border bg-card hover:bg-accent hover:text-accent-foreground transition-colors rounded-sm group"
+        >
+          <div className="p-2 bg-muted text-muted-foreground group-hover:text-foreground transition-colors rounded-sm">
+            <Download className="h-5 w-5" />
+          </div>
+          <div>
+            <span className="block text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Professional Summary</span>
+            <span className="block text-sm font-medium text-foreground">Get CV</span>
+          </div>
+        </Link>
 
 
       </div>
