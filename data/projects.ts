@@ -48,7 +48,7 @@ export const projects: ProjectRecord[] = [
     name: "Janus Security Gateway",
     githubUrl: "https://github.com/amodhyh/Janus",
     status: "Ongoing",
-    role: "AI/Backend Architect",
+    role: "AI/Backend Engineer",
     stack: "Go, Python, gRPC, Redis, Docker",
     shortDescription:
       "An ultra-low latency AI API gateway and reverse proxy featuring asynchronous prompt injection defense, PII redaction, and automated LLM fallback routing.",

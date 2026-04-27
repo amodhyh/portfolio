@@ -109,10 +109,11 @@ export const publications: Publication[] = [
 
 export const infrastructureMatrix = {
   "Languages": "C++, Go, Java, Python, TypeScript",
-  "Orchestration & State": "Apache Kafka, Temporal.io, Docker",
+  "Orchestration & Choreography": "Apache Kafka, Temporal.io, Docker",
   "Monitoring & Telemetry": "Prometheus",
   "Frameworks & UI": "Spring , Next.js, Tailwind CSS, FastAPI, React",
   "AI / ML ": "Pytorch, Scikit-learn ",
   "Cloud": "AWS, Oracle(OCI)",
-  "CI/CD": "Github-Actions"
+  "CI/CD": "Github-Actions",
+  
 };
