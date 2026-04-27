@@ -27,21 +27,32 @@ export const experience: Experience[] = [
     role: "Fullstack AI Engineering Intern",
     period: "2025 - Present",
     details: [
-      `Engineered a local inference architecture to replace cloud-dependent LLMs, guaranteeing zero data leakage. 
-      Utilized IBM Docling for layout-aware PDF extraction, converting unstructured documents into spatial Markdown. `,
-      `Wrote heuristic Python scripts to filter out coordinate-based noise (like footers), and piped the clean context into local 
-      SLMs (via Ollama) using constrained decoding for strict JSON enforcement.`,
+`     Engineered the marketing home page and payment flow in Next.js, applying compound component 
+patterns and layout best practices with deliberate attention to Core Web Vitals, achieving measurable 
+improvements in LCP (Largest Contentful Paint) and TTFB (Time to First Byte) for a snappy, production-grade 
+user experience.`,
 
-      `Built the Next.js web application utilizing Route Groups for layout isolation. To prevent the main thread from dropping 
-      frames during heavy Framer Motion interactions, I bypassed standard React state management for forms. Instead, I implemented 
-      uncontrolled components using React Hook Form and refs, offloading strict data validation to Zod.`,
+`Designed and implemented the normalized relational schema underpinning the payment system integration by modelling 
+transaction entities, payment states, and relational flows with forward compatibility in 
+mind, ensuring the data layer could reliably support the full payment lifecycle from initiation to confirmation.`,
 
-      `Designed the relational database in PostgreSQL via Prisma for a payment system. Enforced data and UI stability across the app by utilizing exact 
-      Decimal types for all financial ledgers (mitigating standard JavaScript floating-point errors) 
-      and optimizing Core Web Vitals (CLS/LCP) through SVG refactoring and aspect-ratio bounding boxes.`,
+`Architected a full document data extraction pipeline entirely from scratch, designed to 
+run in resource-constrained local environments. Integrated Docling for structured document parsing and quantised 
+Small Language Models (SLMs) served via Ollama, removing any dependency on cloud inference.`,
 
-      `Authored and published a comprehensive technical article detailing the engineering trade-offs and 
-      architectural decisions made during this project. `
+`Built the pipeline's backend service layer with FastAPI, exposing clean async endpoints consumed 
+by the Next.js frontend.Designed the API contract from the ground up with separation of concerns between 
+extraction, inference, and response formatting.`,
+
+`Applied the Singleton design pattern combined with Dependency Injection to manage SLM model loading and heavy 
+object loading, ensuring the model is instantiated once and reused across requests, preventing OOM errors and cold-load overhead 
+on local hardware.`,
+
+`Authored a technical article that simultaneously serves as living documentation for the project 
+bridging the gap between implementation detail and readable reference, written to be useful both 
+as onboarding material for the engineering team and as a public-facing demonstration of technical depth.`,
+
+
     ]
   }
 ];
@@ -49,11 +60,16 @@ export const experience: Experience[] = [
 export const academics: Academic[] = [
   {
     institution: "University of Jaffna",
-    credential: "B.Sc. Computer Engineering",
+    credential: "B.Sc. Computer Engineering (hons)",
     period: "Expected 2026",
     details: [
-      "Specialization tracks: Artificial Intelligence, Software Architecture, Machine Learning, Embedded Systems",
-      "Core focus on backend infrastructure and AI optimization"
+      ` Systems & Infrastructure: Operating Systems, Computer Networking, Computer Architecture, Computer and Network Security.`,
+        
+        `Intelligence & Data: Machine Learning, Deep Learning, AI, Data Mining.`,
+
+        `Software Engineering: Software Architecture, DS & Algorithms, Database Systems.`,
+
+        `Research - Emotion Recognition of Sinhala Language Texts in Social Media`
     ]
   },
   {
@@ -95,7 +111,8 @@ export const infrastructureMatrix = {
   "Languages": "C++, Go, Java, Python, TypeScript",
   "Orchestration & State": "Apache Kafka, Temporal.io, Docker",
   "Monitoring & Telemetry": "Prometheus",
-  "Frameworks & UI": "Spring Boot, Next.js, Tailwind CSS, FastAPI, React",
+  "Frameworks & UI": "Spring , Next.js, Tailwind CSS, FastAPI, React",
   "AI / ML ": "Pytorch, Scikit-learn ",
-  "Cloud":"AWS, Oracle(OCI)"
+  "Cloud": "AWS, Oracle(OCI)",
+  "CI/CD": "Github-Actions"
 };
