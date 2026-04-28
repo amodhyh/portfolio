@@ -48,7 +48,7 @@ export const projects: ProjectRecord[] = [
     name: "Janus Security Gateway",
     githubUrl: "https://github.com/amodhyh/Janus",
     status: "Ongoing",
-    role: "Systems Architect",
+    role: "AI/Backend Engineer",
     stack: "Go, Python, gRPC, Redis, Docker",
     shortDescription:
       "An ultra-low latency AI API gateway and reverse proxy featuring asynchronous prompt injection defense, PII redaction, and automated LLM fallback routing.",
@@ -71,8 +71,8 @@ export const projects: ProjectRecord[] = [
     name: "Sazzler",
     githubUrl: "https://github.com/amodhyh/Project-Sazzler",
     status: "Ongoing",
-    role: "Event-Driven Commerce Platform",
-    stack: "Java, Spring Boot, Kafka",
+    role: "Backend Engineer",
+    stack: "Java, Spring, Kafka",
     shortDescription:
       "Microservices-based e-commerce backend built on event-sourcing principles and async choreographies.",
     description:
@@ -92,7 +92,7 @@ export const projects: ProjectRecord[] = [
     name: "Portfolio",
     githubUrl: "https://github.com/amodhyh/portfolio",
     status: "Production",
-    role: "Frontend Engineering",
+    role: "Frontend Engineer",
     stack: "Next.js, TypeScript, Vercel",
     shortDescription:
       "Static site engineered to showcase backend architecture, system design case studies, and engineering maturity.",
@@ -109,7 +109,7 @@ export const projects: ProjectRecord[] = [
     name: "Centurion AIOps",
     githubUrl: "https://github.com/amodhyh/centurion-aiops",
     status: "Upcoming",
-    role: "Autonomous SRE Agent",
+    role: "AI/SRE Engineer",
     stack: "Go, Temporal, Prometheus",
     shortDescription:
       "Workflow-driven operations agent for incident triage, rollback orchestration, and self-healing execution.",
@@ -130,7 +130,7 @@ export const projects: ProjectRecord[] = [
   name: "Sortify",
   githubUrl: "https://github.com/amodhyh/Sortify",
   status: "Completed",
-  role: "Fullstack AI Garbage Classifier",
+  role: "Fullstack AI Engineer",
   stack: "React, FastAPI, Pytorch",
   shortDescription:
     "A full-stack AI application that processes and classifies waste materials using a custom machine learning model.",
@@ -142,6 +142,29 @@ export const projects: ProjectRecord[] = [
      of garbage Classes.`,
   architectureImage: "/projects/architecture/sortify.svg",
   architectureAlt: "Sortify architecture highlighting a React frontend communicating with a FastAPI and PyTorch inference server",
+  relatedArticles: []
+},
+{
+  id: "SYS-06",
+  slug: "sinhala-emotion-recognition",
+  name: "Sinhala Emotion Recognition",
+  githubUrl: "https://github.com/amodhyh/emotion-detection", // Update with your actual repo link
+  status: "Ongoing",
+  role: "AI Researcher & Engineer",
+  stack: "SinBERT (RoBERTa), PyTorch, CNN, FastAPI",
+  shortDescription:
+    `A deep learning research project focused on multi-class emotion detection(Ekaman's 
+    Basic Emotions) for the low-resource Sinhala language using a hybrid SinBERT-CNN architecture.`,
+  description:
+    `This project addresses the lack of emotional NLP tools for Sinhala by introducing a manually annotated dataset of 10,000+ social media comments[cite: 54, 257]. 
+    I engineered a hybrid SinBERT-CNN model to extract contextual embeddings alongside local syntactic n-grams. 
+    The research involved a rigorous ablation study which revealed that while hybrid models excel in English, 
+    the agglutinative nature of Sinhala and sub-word tokenization fragmentation can lead to 
+    'destructive interference'. 
+    The final system provides a benchmark Macro F1-score of ~0.71, establishing a 
+    baseline for future multi-class emotion detection in low-resource South Asian languages.`,
+  architectureImage: "/projects/architecture/sinhala-emotion.svg",
+  architectureAlt: "Architecture diagram showing SinBERT (RoBERTa-based) encoder passing contextual embeddings to parallel 1D-CNN layers with kernel sizes 3, 4, and 5",
   relatedArticles: []
 },
 ];
