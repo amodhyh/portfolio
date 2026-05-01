@@ -61,7 +61,7 @@ export const academics: Academic[] = [
   {
     institution: "University of Jaffna",
     credential: "B.Sc. Computer Engineering (hons)",
-    period: "Expected 2026",
+    period: "2026",
     details: [
       ` Systems & Infrastructure: Operating Systems, Computer Networking, Computer Architecture, Computer and Network Security.`,
         
@@ -75,7 +75,7 @@ export const academics: Academic[] = [
   {
     institution: "Central College Anuradhapura",
     credential: "G.C.E. Advanced Level",
-    period: "Completed",
+    period: "2020",
     details: [
       "Results: ABB",
       "Subjects: Combined Mathematics, Physics, Chemistry"
@@ -84,7 +84,7 @@ export const academics: Academic[] = [
   {
     institution: "Central College Anuradhapura",
     credential: "G.C.E. Ordinary Level",
-    period: "Completed",
+    period: "2017",
     details: [
       "Results: 9As",
       "Subjects: 6 common subjects, English Literature, Tamil, Information Technology"
