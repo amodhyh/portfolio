@@ -167,4 +167,24 @@ export const projects: ProjectRecord[] = [
   architectureAlt: "Architecture diagram showing SinBERT (RoBERTa-based) encoder passing contextual embeddings to parallel 1D-CNN layers with kernel sizes 3, 4, and 5",
   relatedArticles: []
 },
+{
+  id: "SYS-07",
+  slug: "springboot-pilot-project",
+  name: "Spring Boot Pilot Project",
+  githubUrl: "https://github.com/amodhyh/springboot-pilot-project",
+  status: "Completed",
+  role: "Backend Engineer",
+  stack: "Java 21, Spring Boot 3, Spring Security, JJWT, Oracle DB, Gradle",
+  shortDescription:
+    "A production-grade Spring Boot REST API featuring JWT authentication, role-based access control, and Argon2 password hashing.",
+  description:
+    `A secure REST API built with Spring Boot 3 that demonstrates enterprise-ready authentication patterns.
+     The application implements JWT-based stateless authentication via a custom filter chain, role-based access control
+     (USER and ADMIN roles) enforced through Spring Security, and Argon2 password hashing for credential storage.
+     Backed by an Oracle Database with Spring Data JPA and Liquibase for schema management, the project
+     includes comprehensive unit and integration tests covering controllers and security configuration.`,
+  architectureImage: "/projects/architecture/springboot-pilot-project.svg",
+  architectureAlt: "Spring Boot JWT Auth architecture showing a Spring Security filter chain, JWT utility layer, JPA repositories, and an Oracle Database",
+  relatedArticles: []
+},
 ];

@@ -34,7 +34,7 @@ export default function ProjectsIndexPage() {
       });
 
   return (
-    <main className="max-w-5xl mx-auto py-12 px-6 min-h-screen bg-background text-foreground font-mono text-sm transition-colors duration-300">
+    <main className="mx-auto max-w-5xl px-6 py-12 text-sm transition-colors duration-300">
       
       {/* Header */}
       <header className="mb-16 border-b border-border pb-8">
@@ -57,11 +57,11 @@ export default function ProjectsIndexPage() {
           {featuredProjects.map((project) => (
 
             <Card key={project.id} className="group h-full border-border bg-card hover:border-primary hover:bg-accent/50 transition-all duration-200 flex flex-col relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-border to-transparent group-hover:from-primary transition-colors" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-border to-transparent group-hover:from-primary transition-colors" />
 
               <CardHeader className="pt-6">
                 <div className="flex justify-between items-start mb-2">
-                  <Badge variant="outline" className="border-border text-muted-foreground font-mono text-[10px] uppercase tracking-widest rounded-none">
+                  <Badge variant="outline" className="border-border text-muted-foreground text-[10px] uppercase tracking-widest rounded-none">
                     {project.id}
                   </Badge>
                   <div className="flex items-center gap-2">
@@ -90,7 +90,7 @@ export default function ProjectsIndexPage() {
               </CardHeader>
 
               <CardContent className="mt-auto pb-6">
-                <div className="text-xs font-mono text-muted-foreground pt-4 border-t border-border">
+                <div className="pt-4 text-xs text-muted-foreground border-t border-border">
                   <span className="font-semibold text-foreground">STACK: </span>
                   {project.stack}
                 </div>
@@ -123,62 +123,122 @@ export default function ProjectsIndexPage() {
         </div>
 
         <div className="rounded-lg border border-border bg-card overflow-hidden">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-24">ID</TableHead>
-                <TableHead>Project</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Stack</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {filteredProjects.map((project) => (
-                <TableRow key={project.id}>
-                  <TableCell className="text-muted-foreground text-xs">{project.id}</TableCell>
-                  <TableCell>
-                    <Link href={`/projects/${project.slug}`} className="font-semibold hover:text-primary transition-colors">
+          {/* Mobile: stacked rows instead of a wide table */}
+          <div className="sm:hidden divide-y divide-border">
+            {filteredProjects.map((project) => (
+              <div key={project.id} className="p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="block font-semibold text-foreground hover:text-primary transition-colors"
+                    >
                       {project.name}
                     </Link>
-                    <p className="text-xs text-muted-foreground mt-1">{project.role}</p>
-                  </TableCell>
-                  <TableCell>
+                    <p className="mt-1 text-xs text-muted-foreground">{project.role}</p>
+                  </div>
+
+                  <div className="shrink-0 flex items-center gap-2">
+                    <Badge variant="outline" className="border-border text-muted-foreground text-[10px] uppercase tracking-widest rounded-none">
+                      {project.id}
+                    </Badge>
                     <Badge variant="secondary" className="uppercase text-[9px] tracking-wider rounded-sm">
                       {project.status}
                     </Badge>
-                  </TableCell>
-                  <TableCell className="text-xs text-muted-foreground">{project.stack}</TableCell>
-                  <TableCell className="text-right">
-                    <div className="inline-flex items-center gap-2">
-                      <Link
-                        href={`/projects/${project.slug}`}
-                        className={cn(buttonVariants({ variant: "outline", size: "xs" }))}
-                      >
-                        Details
-                      </Link>
-                      <Link
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`View ${project.name} on GitHub`}
-                        className={cn(buttonVariants({ variant: "outline", size: "icon-xs" }))}
-                      >
-                        <GithubIcon className="size-3.5" />
-                      </Link>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-              {filteredProjects.length === 0 && (
+                  </div>
+                </div>
+
+                <p className="mt-3 text-xs text-muted-foreground whitespace-normal wrap-break-word">
+                  <span className="text-foreground font-semibold">Stack: </span>
+                  {project.stack}
+                </p>
+
+                <div className="mt-4 flex items-center gap-2">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className={cn(buttonVariants({ variant: "outline", size: "xs" }))}
+                  >
+                    Details
+                  </Link>
+                  <Link
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${project.name} on GitHub`}
+                    className={cn(buttonVariants({ variant: "outline", size: "icon-xs" }))}
+                  >
+                    <GithubIcon className="size-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+
+            {filteredProjects.length === 0 && (
+              <div className="p-8 text-center text-muted-foreground">
+                No projects found for this query.
+              </div>
+            )}
+          </div>
+
+          {/* Desktop: no internal horizontal scroll; allow wrapping */}
+          <div className="hidden sm:block">
+            <Table containerClassName="overflow-visible">
+              <TableHeader>
                 <TableRow>
-                  <TableCell colSpan={5} className="text-center text-muted-foreground py-8">
-                    No projects found for this query.
-                  </TableCell>
+                  <TableHead className="w-24">ID</TableHead>
+                  <TableHead>Project</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead>Stack</TableHead>
+                  <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
-              )}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {filteredProjects.map((project) => (
+                  <TableRow key={project.id}>
+                    <TableCell className="text-muted-foreground text-xs">{project.id}</TableCell>
+                    <TableCell className="whitespace-normal">
+                      <Link href={`/projects/${project.slug}`} className="font-semibold hover:text-primary transition-colors">
+                        {project.name}
+                      </Link>
+                      <p className="text-xs text-muted-foreground mt-1 whitespace-normal">{project.role}</p>
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="secondary" className="uppercase text-[9px] tracking-wider rounded-sm">
+                        {project.status}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="text-xs text-muted-foreground whitespace-normal wrap-break-word">{project.stack}</TableCell>
+                    <TableCell className="text-right">
+                      <div className="inline-flex items-center gap-2">
+                        <Link
+                          href={`/projects/${project.slug}`}
+                          className={cn(buttonVariants({ variant: "outline", size: "xs" }))}
+                        >
+                          Details
+                        </Link>
+                        <Link
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`View ${project.name} on GitHub`}
+                          className={cn(buttonVariants({ variant: "outline", size: "icon-xs" }))}
+                        >
+                          <GithubIcon className="size-3.5" />
+                        </Link>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+                {filteredProjects.length === 0 && (
+                  <TableRow>
+                    <TableCell colSpan={5} className="text-center text-muted-foreground py-8 whitespace-normal">
+                      No projects found for this query.
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </div>
         </div>
       </section>
     </main>

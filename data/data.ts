@@ -108,12 +108,16 @@ export const publications: Publication[] = [
 ];
 
 export const infrastructureMatrix = {
-  "Languages": "C++, Go, Java, Python, TypeScript",
-  "Orchestration & Choreography": "Apache Kafka, Temporal.io, Docker",
-  "Monitoring & Telemetry": "Prometheus",
-  "Frameworks & UI": "Spring , Next.js, Tailwind CSS, FastAPI, React",
-  "AI / ML ": "Pytorch, Scikit-learn ",
-  "Cloud": "AWS, Oracle(OCI)",
-  "CI/CD": "Github-Actions",
+  "Programming Languages": "C++, Go, Java, Python, TypeScript",
+  "Application Frameworks": "Spring Boot, FastAPI, Next.js, React, Tailwind CSS",
+  "Persistence & Data": "OracleDB, MySQL, PostgreSQL, Redis, MongoDB",
+  "Event Streaming & Workflows": "Apache Kafka, Temporal.io",
+  "AI / Machine Learning": "PyTorch, Scikit-learn, Ollama",
+  // "Infrastructure as Code (IaC)": "Terraform, AWS CDK",
+  "Backend-as-a-Service (BaaS)": "Supabase, Firebase",
+  "Containerization & Runtime": "Docker",
+  "Cloud Providers": "AWS, Oracle Cloud (OCI)",
+  "CI/CD & GitOps": "GitHub Actions",
+  "Observability & Telemetry": "Prometheus, Grafana, OpenTelemetry"
   
 };
