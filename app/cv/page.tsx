@@ -92,7 +92,7 @@ export default function CVProxyPage() {
   }, [navigationState, router]);
 
   return (
-    <div className="flex flex-col h-screen items-center justify-center font-mono text-xs tracking-tighter gap-6">
+    <div className="flex h-screen flex-col items-center justify-center gap-6 text-xs tracking-tighter">
       <div className="text-center space-y-2">
         <p className="uppercase opacity-70">
           {downloadState === "downloading" ? "FILE DOWNLOADING" : "DOWNLOAD COMPLETED"}

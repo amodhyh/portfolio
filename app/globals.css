@@ -2,8 +2,9 @@
 
 /* 1. shadcn Theme Mapping for Tailwind v4 */
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-primary: var(--font-app-mono);
+  --font-secondary: var(--font-app-sans);
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
@@ -32,6 +33,9 @@
 /* 2. Base Theme (Light Mode) */
 @layer base {
   :root {
+    --font-body: var(--font-primary);
+    --font-heading: var(--font-primary);
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -82,7 +86,15 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: var(--font-secondary);
   }
 }
 
@@ -93,5 +105,9 @@
     background-image: linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
     background-size: 40px 40px;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
   }
 }

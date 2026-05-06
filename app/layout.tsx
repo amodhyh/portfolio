@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 import HomeButton from "@/components/home-button";
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Suspense } from "react";
 
-
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-app-sans",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-app-mono",
   subsets: ["latin"],
 });
 
@@ -34,13 +34,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(geistSans.variable, geistMono.variable)}
+    >
       <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          geistSans.variable,
-          geistMono.variable
-        )}
+        className="min-h-screen"
       >
         <ThemeProvider
           attribute="class"
@@ -64,7 +64,7 @@ export default function RootLayout({
         </ThemeProvider>
         
         <Suspense fallback={null}>
-          <Analytics mode={'production'} /> 
+          <Analytics mode={"production"} />
           <SpeedInsights />
         </Suspense>
 

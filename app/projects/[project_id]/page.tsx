@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 // Component to display the articles , if there are any otherwise a simple text is displayed
 function Articles({ relatedArticles }: { relatedArticles: ProjectRecord["relatedArticles"] }) {
   if (relatedArticles.length === 0 ) {
-    return <h3 className="text-muted">Articles are ongoing...</h3>;
+    return <h3 className="text-muted-foreground">Articles are ongoing...</h3>;
   } 
 
   return relatedArticles.map((article) => (
@@ -62,7 +62,7 @@ export default async function ProjectDetailsPage({
   if (!project) notFound();
 
   return (
-    <main className="max-w-5xl mx-auto py-20 px-6 min-h-screen bg-background text-foreground font-mono text-sm transition-colors duration-300">
+    <main className="mx-auto max-w-5xl px-6 py-20 text-sm transition-colors duration-300">
       <header className="mb-10 border-b border-border pb-8">
         <Link
           href="/projects"
@@ -73,7 +73,7 @@ export default async function ProjectDetailsPage({
         </Link>
 
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <Badge variant="outline" className="font-mono uppercase tracking-wider text-[10px] rounded-none">
+          <Badge variant="outline" className="uppercase tracking-wider text-[10px] rounded-none">
             {project.id}
           </Badge>
           <Badge variant="secondary" className="uppercase tracking-wider text-[10px] rounded-sm">
