@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,6 +9,28 @@ import { buttonVariants } from "@/components/ui/button";
 import { GithubIcon } from "@/components/logo/logo";
 import { getProjectBySlug, ProjectRecord, projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ project_id: string }>;
+}): Promise<Metadata> {
+  const { project_id } = await params;
+  const project = getProjectBySlug(project_id);
+
+  if (!project) return {};
+
+  return {
+    title: project.name,
+    description: project.shortDescription,
+    openGraph: {
+      title: project.name,
+      description: project.shortDescription,
+      url: `https://amodhyh.vercel.app/projects/${project.slug}`,
+      type: "website",
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return projects.map((project) => ({ project_id: project.slug }));
