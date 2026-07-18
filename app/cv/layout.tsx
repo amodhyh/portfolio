@@ -9,7 +9,6 @@ export const metadata: Metadata = {
     description: "Download the CV of Amodh Herath.",
     url: "https://amodhyh.vercel.app/cv",
     type: "website",
-    images:""
   },
 };
 
