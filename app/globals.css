@@ -3,8 +3,8 @@
 /* 1. shadcn Theme Mapping for Tailwind v4 */
 @theme inline {
 
-  --font-primary: var(--font-app-sans);
-  --font-secondary: var(--font-app-mono);
+  --font-primary: var(--font-app-mono);
+  --font-secondary: var(--font-app-sans);
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
