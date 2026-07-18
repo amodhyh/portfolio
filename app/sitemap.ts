@@ -2,9 +2,11 @@ import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
   const projectUrls = projects.map((project) => ({
     url: `https://amodhyh.vercel.app/projects/${project.slug}`,
-    lastModified: new Date(),
+    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
