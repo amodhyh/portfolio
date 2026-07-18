@@ -1,6 +1,20 @@
 // app/page.tsx
+import type { Metadata } from "next";
 import { experience, academics, publications, infrastructureMatrix } from "@/data/data";
 import { projects } from "@/data/projects";
+
+export const metadata: Metadata = {
+  title: "Amodh Herath",
+  description:
+    "I write backend software focused on distributed architecture and system reliability. I build the middleware that makes AI integration viable in production — handling the network edge, managing asynchronous events, and ensuring services communicate reliably.",
+  openGraph: {
+    title: "Amodh Herath",
+    description:
+      "Backend software engineer focused on distributed architecture and system reliability.",
+    url: "https://amodhyh.vercel.app",
+    type: "website",
+  },
+};
 
 import { FeaturedProjects } from "@/components/portfolio/active-systems";
 import { OperationsLedger } from "@/components/portfolio/op-ledger";

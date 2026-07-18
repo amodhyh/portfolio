@@ -148,7 +148,7 @@ export default function ProjectsIndexPage() {
                   </div>
                 </div>
 
-                <p className="mt-3 text-xs text-muted-foreground whitespace-normal wrap-break-word">
+                <p className="mt-3 text-xs text-muted-foreground whitespace-normal break-words">
                   <span className="text-foreground font-semibold">Stack: </span>
                   {project.stack}
                 </p>
@@ -207,7 +207,7 @@ export default function ProjectsIndexPage() {
                         {project.status}
                       </Badge>
                     </TableCell>
-                    <TableCell className="text-xs text-muted-foreground whitespace-normal wrap-break-word">{project.stack}</TableCell>
+                    <TableCell className="text-xs text-muted-foreground whitespace-normal break-words">{project.stack}</TableCell>
                     <TableCell className="text-right">
                       <div className="inline-flex items-center gap-2">
                         <Link
