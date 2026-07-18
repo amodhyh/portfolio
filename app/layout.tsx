@@ -21,8 +21,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Amodh Herath ",
-  description: "Portfolio website of Amodh Herath",
+  metadataBase: new URL("https://amodhyh.vercel.app"),
+  title: {
+    default: "Amodh Herath",
+    template: "%s | Amodh Herath",
+  },
+  description:
+    "Backend software engineer focused on distributed architecture and system reliability.",
+  openGraph: {
+    siteName: "Amodh Herath",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 
