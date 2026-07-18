@@ -22,6 +22,7 @@ import { AcademicsLedger } from "@/components/portfolio/academic";
 
 import { Badge } from "@/components/ui/badge";
 import { ContactProtocol } from "@/components/portfolio/contact";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -60,7 +61,15 @@ export default function Home() {
                 </Badge>
                 <span className="text-muted-foreground uppercase tracking-widest text-[10px] font-semibold">{pub.status}</span>
               </div>
-              <h3 className="text-base font-bold text-card-foreground mb-3 leading-tight">{pub.title}</h3>
+              <h3 className="text-base font-bold text-card-foreground mb-3 leading-tight">
+                {pub.link ? (
+                  <Link href={pub.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    {pub.title}
+                  </Link>
+                ) : (
+                  pub.title
+                )}
+              </h3>
               <p className="text-muted-foreground text-sm leading-relaxed mt-auto">{pub.description}</p>
             </div>
           ))}
