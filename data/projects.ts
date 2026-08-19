@@ -72,16 +72,17 @@ export const projects: ProjectRecord[] = [
     githubUrl: "https://github.com/amodhyh/Project-Sazzler",
     status: "Ongoing",
     role: "Backend Engineer",
-    stack: "Java, Spring, Kafka",
+    stack: "Java, Spring Boot, Spring Cloud, Kafka, PostgreSQL, MongoDB",
     shortDescription:
-      "Microservices-based e-commerce backend built on event-sourcing principles and async choreographies.",
+      "Microservices-based e-commerce backend built on event-driven architecture, distributed caching, and state machine choreographies.",
     description:
       `Sazzler operates as a heavy-lifting microservices platform handling core commerce domains. 
-      It relies on Kafka for asynchronous communication between inventory, ordering, and payment services. 
-      The architecture heavily emphasizes idempotent consumers, strict domain boundaries, and eventual 
-      consistency to maintain high throughput and reliability under load.`,
+      It utilizes Spring Cloud (Eureka) for service discovery and a Reactive API Gateway for edge routing and JWT verification. 
+      The system relies on Kafka for asynchronous event synchronization between the Product service (MongoDB) and Order service (PostgreSQL). 
+      The architecture heavily emphasizes idempotent consumers, strict domain boundaries, and eventual consistency, utilizing Spring State Machine 
+      to manage complex order transition lifecycles and paving the way for Saga orchestration.`,
     architectureImage: "/projects/architecture/sazzler.svg",
-    architectureAlt: "Sazzler microservices topology communicating via Kafka event backbone",
+    architectureAlt: "Sazzler microservices topology communicating via Kafka event backbone and Eureka service discovery",
     relatedArticles: [
       
     ]
@@ -108,17 +109,18 @@ export const projects: ProjectRecord[] = [
     slug: "centurion",
     name: "Centurion AIOps",
     githubUrl: "https://github.com/amodhyh/centurion-aiops",
-    status: "Upcoming",
+    status: "Ongoing",
     role: "AI/SRE Engineer",
-    stack: "Go, Temporal, Prometheus",
+    stack: "Java, Python, TypeScript, Kafka, Temporal, PGVector, LangGraph",
     shortDescription:
-      "Workflow-driven operations agent for incident triage, rollback orchestration, and self-healing execution.",
+      "A polyglot AIOps platform orchestrating self-healing infrastructure via Event-Driven Architecture, durable execution, and LLM-based root cause analysis.",
     description:
-      `Centurion automates operational response to telemetry anomalies. 
-      It consumes alerts, evaluates runbook strategies, and executes remediations through Temporal workflows. 
-      The architecture prioritizes observability, deterministic retries, and controlled escalation paths to human operators.`,
+      `Centurion acts as a "Digital Immune System" that automates operational response to telemetry anomalies. 
+      It ingests structured logs and chaos events via Kafka, evaluates runbook strategies using LangGraph and PGVector with local Ollama embeddings, 
+      and orchestrates remediations through Temporal workflows. The architecture prioritizes 
+      observability, durable execution, and controlled Human-in-the-Loop escalation paths to human operators.`,
     architectureImage: "/projects/architecture/centurion.svg",
-    architectureAlt: "Centurion architecture with telemetry ingestion and Temporal orchestration",
+    architectureAlt: "Centurion architecture with Kafka telemetry ingestion, Temporal orchestration, and AI diagnostic engine",
     relatedArticles: [
       
     ]

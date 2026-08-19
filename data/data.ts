@@ -92,9 +92,9 @@ export const publications: Publication[] = [
 export const infrastructureMatrix = {
   "Programming Languages": "C++, Go, Java, Python, TypeScript",
   "Application Frameworks": "Spring Boot, FastAPI, Next.js, React, Tailwind CSS",
-  "Persistence & Data": "OracleDB, MySQL, PostgreSQL, Redis, MongoDB",
-  "Event Streaming & Workflows": "Apache Kafka, Temporal.io",
-  "AI / Machine Learning": "PyTorch, Scikit-learn, Ollama",
+  "Persistence & Data": "OracleDB, PostgreSQL (PGVector), MySQL, Redis, MongoDB",
+  "Event Streaming & Workflows": "Apache Kafka, Temporal.io, gRPC",
+  "AI / Machine Learning": "PyTorch, LangGraph, Ollama, Scikit-learn",
   // "Infrastructure as Code (IaC)": "Terraform, AWS CDK",
   "Backend-as-a-Service (BaaS)": "Supabase, Firebase",
   "Containerization & Runtime": "Docker",
