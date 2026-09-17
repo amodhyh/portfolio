@@ -151,7 +151,7 @@ export const projects: ProjectRecord[] = [
   slug: "sinhala-emotion-recognition",
   name: "Sinhala Emotion Recognition",
   githubUrl: "https://github.com/amodhyh/emotion-detection", // Update with your actual repo link
-  status: "Ongoing",
+  status: "Completed",
   role: "AI Researcher & Engineer",
   stack: "SinBERT (RoBERTa), PyTorch, CNN, FastAPI",
   shortDescription:

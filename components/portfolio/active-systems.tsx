@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { getFeaturedProjects,ProjectRecord } from "@/data/projects"
 
-export function FeaturedProjects({ projects }: { projects: ProjectRecord[] }) {
+export function FeaturedProjects() {
   const featuredProjects = getFeaturedProjects();
   return (
     <section className="mb-20">
@@ -21,14 +21,14 @@ export function FeaturedProjects({ projects }: { projects: ProjectRecord[] }) {
         </Link>
       </div>
       <div className="border rounded-lg overflow-hidden">
-        <div className="hidden md:block">
-          <Table className="overflow-hidden ">
+        <div className="hidden md:block overflow-x-auto">
+          <Table>
             <TableHeader>
               <TableRow>
                 <TableHead className="w-28">ID</TableHead>
                 <TableHead>System</TableHead>
                 <TableHead>Architecture</TableHead>
-                <TableHead>Core Stack</TableHead>
+                <TableHead className="w-[250px]">Core Stack</TableHead>
                 <TableHead className="text-right">Status</TableHead>
               </TableRow>
             </TableHeader>
@@ -43,7 +43,7 @@ export function FeaturedProjects({ projects }: { projects: ProjectRecord[] }) {
                     </span>
                   </TableCell>
                   <TableCell className="text-muted-foreground align-top pt-4">{project.role}</TableCell>
-                  <TableCell className="align-top pt-4">{project.stack}</TableCell>
+                  <TableCell className="align-top pt-4 whitespace-normal break-words w-[250px]">{project.stack}</TableCell>
                   <TableCell className="text-right align-top pt-4">
                     <Badge variant="outline" className="rounded-sm uppercase text-[10px] tracking-wider">
                       {project.status}
@@ -55,7 +55,7 @@ export function FeaturedProjects({ projects }: { projects: ProjectRecord[] }) {
           </Table>
         </div>
         <div className="md:hidden">
-          {projects.map((project) => (
+          {featuredProjects.map((project) => (
             <div key={project.id} className="border-b p-4 last:border-b-0">
               <div className="flex justify-between items-start mb-2">
                 <div>

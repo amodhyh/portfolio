@@ -44,7 +44,7 @@ export default function Home() {
 
       {/* Modular Components */}
       <OperationsLedger operations={experience}  />
-      <FeaturedProjects projects={projects} />
+      <FeaturedProjects />
       <AcademicsLedger academic={academics}></AcademicsLedger>
      
      
